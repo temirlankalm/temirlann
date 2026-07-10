@@ -8,13 +8,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdf0ef'/%3E%3Ctext x='50' y='70' font-size='56' font-family='Georgia,serif' fill='%23983b34' text-anchor='middle'%3Et%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23fdf8f4'/%3E%3Ctext x='50' y='70' font-size='56' font-family='Georgia,serif' fill='%23a24a5e' text-anchor='middle'%3Et%3C/text%3E%3C/svg%3E">
 <style>
   :root {
-    --bg: #fdf0ef;
-    --ink: #983b34;
-    --ink-soft: #a85049;
-    --underline: rgba(152, 59, 52, 0.45);
+    --bg: #fdf8f4;
+    --ink: #a24a5e;
+    --ink-soft: #b56a7a;
+    --underline: rgba(162, 74, 94, 0.45);
+    --highlight: #f4a9c8;
+    --highlight-ink: #7e3247;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +32,7 @@
     min-height: 100vh;
   }
 
-  ::selection { background: rgba(152, 59, 52, 0.15); }
+  ::selection { background: rgba(244, 169, 200, 0.45); }
 
   .wrap {
     max-width: 960px;
@@ -47,8 +49,22 @@
   }
 
   a:hover {
-    color: #7c2d26;
-    border-bottom-color: #7c2d26;
+    color: var(--highlight-ink);
+    border-bottom-color: var(--highlight-ink);
+  }
+
+  .hl {
+    background: var(--highlight);
+    color: var(--highlight-ink);
+    border-bottom: none;
+    border-radius: 4px;
+    padding: 1px 7px 2px;
+  }
+
+  .hl:hover {
+    background: #f19cbf;
+    color: #6e2a3d;
+    border-bottom: none;
   }
 
   /* ---------- fade-in ---------- */
@@ -141,7 +157,7 @@
   <main>
     <p class="fade d1">hey, i'm temirlan kalmukhan.</p>
 
-    <p class="fade d2">i'm an investment analyst at <a href="https://whitehillcapital.io" target="_blank" rel="noopener">white hill capital</a>, where i do deal sourcing, technical due diligence and market research — evaluating high-growth startups across ai and saas.</p>
+    <p class="fade d2">i'm an investment analyst at <a class="hl" href="https://whitehillcapital.io" target="_blank" rel="noopener">white hill capital</a>, where i do deal sourcing, technical due diligence and market research — evaluating high-growth startups across ai and saas.</p>
 
     <p class="fade d3">i'm also co-founder &amp; ceo of <a href="https://extensy.dev" target="_blank" rel="noopener">extensy</a>, where we built advanced agentic pipelines — architectures that let autonomous ai agents reason, chain tasks and execute complex workflows on the web. i also led <a href="https://nex.extensy.dev" target="_blank" rel="noopener">nex</a>, our browser-agent system that automated complex ui interactions directly inside the browser.</p>
 
@@ -150,6 +166,7 @@
     <div class="links fade d5">
       <a href="https://x.com/temirkalm" target="_blank" rel="noopener">x.com</a>
       <a href="https://www.linkedin.com/in/temirlan-kalmukhan-909280365/" target="_blank" rel="noopener">linkedin</a>
+      <a href="mailto:temirlan@extensy.dev">temirlan@extensy.dev</a>
     </div>
   </main>
 
