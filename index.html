@@ -118,6 +118,99 @@
     font-size: 16.5px;
   }
 
+  /* ---------- corner play button ---------- */
+  .player-toggle {
+    position: fixed;
+    bottom: 28px;
+    right: 32px;
+    z-index: 60;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--ink);
+    font-family: inherit;
+    padding: 4px;
+  }
+
+  .player-toggle .line {
+    width: 46px;
+    height: 1px;
+    background: var(--underline);
+    transition: width 0.3s ease, background 0.2s ease;
+  }
+
+  .player-toggle svg {
+    width: 15px;
+    height: 15px;
+    fill: var(--ink);
+    transition: fill 0.2s ease, transform 0.2s ease;
+  }
+
+  .player-toggle:hover .line { width: 60px; background: var(--ink); }
+  .player-toggle:hover svg { transform: scale(1.12); }
+
+  .player-toggle .icon-pause { display: none; }
+  .player-toggle.playing .icon-play { display: none; }
+  .player-toggle.playing .icon-pause { display: block; }
+
+  /* light styling while the overlay is open (dark backdrop) */
+  .player-toggle.playing { color: #fbe4ea; }
+  .player-toggle.playing svg { fill: #fbe4ea; }
+  .player-toggle.playing .line { background: rgba(251, 228, 234, 0.5); }
+  .player-toggle.playing:hover .line { background: #fbe4ea; }
+
+  /* ---------- video overlay ---------- */
+  .video-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(38, 12, 18, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .video-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .video-overlay video {
+    max-width: min(960px, 100%);
+    max-height: 85vh;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    transform: scale(0.97);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .video-overlay.open video { transform: scale(1); }
+
+  .video-close {
+    position: absolute;
+    top: 26px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: #fbe4ea;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  .video-close:hover { opacity: 1; }
+
   /* ---------- responsive ---------- */
   @media (max-width: 600px) {
     body { font-size: 16px; }
@@ -125,6 +218,9 @@
     main { padding: 72px 0 64px; }
     .wrap { padding: 0 24px; }
     .links { gap: 20px; }
+    .player-toggle { bottom: 20px; right: 22px; }
+    .player-toggle .line { width: 34px; }
+    .video-overlay { padding: 16px; }
   }
 </style>
 </head>
@@ -161,6 +257,56 @@
   </main>
 
 </div>
+
+<button class="player-toggle" id="playerToggle" aria-label="play video">
+  <span class="line"></span>
+  <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+</button>
+
+<div class="video-overlay" id="videoOverlay">
+  <button class="video-close" id="videoClose" aria-label="close">&times;</button>
+  <video id="reinhardVideo" src="reinhard.mp4" playsinline preload="metadata"></video>
+</div>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('playerToggle');
+    var overlay = document.getElementById('videoOverlay');
+    var closeBtn = document.getElementById('videoClose');
+    var video = document.getElementById('reinhardVideo');
+
+    function open() {
+      overlay.classList.add('open');
+      toggle.classList.add('playing');
+      toggle.setAttribute('aria-label', 'pause video');
+      video.play();
+    }
+
+    function close() {
+      overlay.classList.remove('open');
+      toggle.classList.remove('playing');
+      toggle.setAttribute('aria-label', 'play video');
+      video.pause();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (overlay.classList.contains('open')) { close(); } else { open(); }
+    });
+
+    closeBtn.addEventListener('click', close);
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) { close(); }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { close(); }
+    });
+
+    video.addEventListener('ended', close);
+  })();
+</script>
 
 </body>
 </html>
