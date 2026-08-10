@@ -280,12 +280,29 @@
   @media (max-width: 600px) {
     body { font-size: 16px; }
     header { padding-top: 36px; }
-    main { padding: 72px 0 64px; }
+    main { padding: 72px 0 104px; }
     .wrap { padding: 0 24px; }
     .links { gap: 20px; }
     .player-toggle { bottom: 20px; right: 22px; }
     .player-toggle .line { width: 34px; }
+    .bg-toggle { bottom: 20px; left: 22px; }
+    .bg-toggle .line { width: 34px; }
     .video-overlay { padding: 16px; }
+
+    /* on mobile the corner buttons hide until you scroll to the bottom,
+       so they never cover the text mid-scroll */
+    .player-toggle, .bg-toggle {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    body.show-controls .player-toggle,
+    body.show-controls .bg-toggle {
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
   }
 </style>
 </head>
@@ -393,6 +410,19 @@
       apply(plain);
       localStorage.setItem('bg', plain ? 'plain' : 'image');
     });
+  })();
+
+  // reveal corner buttons only once the footer links are in view (mobile)
+  (function () {
+    var anchor = document.querySelector('.links');
+    if (!anchor || !('IntersectionObserver' in window)) {
+      document.body.classList.add('show-controls');
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      document.body.classList.toggle('show-controls', entries[0].isIntersecting);
+    }, { rootMargin: '0px 0px -10% 0px' });
+    io.observe(anchor);
   })();
 </script>
 
