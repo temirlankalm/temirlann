@@ -35,6 +35,10 @@
     min-height: 100vh;
   }
 
+  body.plain-bg {
+    background: #f7d5df;
+  }
+
   ::selection { background: rgba(244, 169, 200, 0.45); }
 
   .wrap {
@@ -183,6 +187,46 @@
   .player-toggle.playing .line { background: rgba(251, 228, 234, 0.5); }
   .player-toggle.playing:hover .line { background: #fbe4ea; }
 
+  /* ---------- corner background toggle ---------- */
+  .bg-toggle {
+    position: fixed;
+    bottom: 28px;
+    left: 32px;
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--ink);
+    font-family: inherit;
+    padding: 4px;
+  }
+
+  .bg-toggle svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 1.6;
+    transition: transform 0.2s ease;
+  }
+
+  .bg-toggle .line {
+    width: 46px;
+    height: 1px;
+    background: var(--underline);
+    transition: width 0.3s ease, background 0.2s ease;
+  }
+
+  .bg-toggle:hover .line { width: 60px; background: var(--ink); }
+  .bg-toggle:hover svg { transform: scale(1.12); }
+
+  .bg-toggle .icon-solid { display: none; }
+  .bg-toggle.plain .icon-image { display: none; }
+  .bg-toggle.plain .icon-solid { display: block; }
+
   /* ---------- video overlay ---------- */
   .video-overlay {
     position: fixed;
@@ -280,6 +324,12 @@
 
 </div>
 
+<button class="bg-toggle" id="bgToggle" aria-label="toggle background">
+  <span class="line"></span>
+  <svg class="icon-image" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5" fill="currentColor" stroke="none"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>
+  <svg class="icon-solid" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="currentColor" stroke="none"/></svg>
+</button>
+
 <button class="player-toggle" id="playerToggle" aria-label="play video">
   <span class="line"></span>
   <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -327,6 +377,22 @@
     });
 
     video.addEventListener('ended', close);
+  })();
+
+  // background toggle: painting <-> plain pink
+  (function () {
+    var btn = document.getElementById('bgToggle');
+    function apply(plain) {
+      document.body.classList.toggle('plain-bg', plain);
+      btn.classList.toggle('plain', plain);
+    }
+    var saved = localStorage.getItem('bg') === 'plain';
+    apply(saved);
+    btn.addEventListener('click', function () {
+      var plain = !document.body.classList.contains('plain-bg');
+      apply(plain);
+      localStorage.setItem('bg', plain ? 'plain' : 'image');
+    });
   })();
 </script>
 
