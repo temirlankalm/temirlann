@@ -38,8 +38,17 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -2;
     display: block;
+  }
+
+  /* soft veil over the shader so the wine-red text stays readable */
+  #bgScrim {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: rgba(253, 240, 246, 0.34);
   }
 
   ::selection { background: rgba(244, 169, 200, 0.45); }
@@ -269,6 +278,7 @@
 <body>
 
 <canvas id="shaderBg"></canvas>
+<div id="bgScrim"></div>
 
 <div class="wrap">
 
@@ -517,24 +527,24 @@
 '}'
   ].join('\n');
 
-  // light-pink palette (white -> soft pinks)
+  // light-pink palette with enough contrast for the noise spots to read
   var U = {
     colors: [
-      [1,1,1],
-      [0.992,0.933,0.953],
-      [0.984,0.863,0.906],
-      [0.965,0.737,0.824],
-      [0.965,0.737,0.824],
-      [0.965,0.737,0.824],
-      [0.965,0.737,0.824],
-      [0.965,0.737,0.824]
+      [1.000,1.000,1.000],   // white
+      [0.996,0.910,0.945],   // #fee8f1 very light pink
+      [0.972,0.741,0.843],   // #f8bdd7 light pink
+      [0.925,0.510,0.686],   // #ec82af rose (visible spots)
+      [0.925,0.510,0.686],
+      [0.925,0.510,0.686],
+      [0.925,0.510,0.686],
+      [0.925,0.510,0.686]
     ],
     colorCount: 4,
-    scale: 1.48, intensity: 0.52, paramA: 0.51, warp: 0.186,
-    detail: 2.752, contrast: 1.005, brightness: 0.0, saturation: 1.0,
-    hue: 0.0, vignette: 0.0, blur: 0.0, grain: 0.028,
-    seed: 1.0, rotate: 0.6458, offsetX: 0.0, offsetY: 0.0, drift: 0.0,
-    oklab: 0.0, timeScale: 0.822
+    scale: 1.35, intensity: 0.42, paramA: 0.55, warp: 0.26,
+    detail: 2.752, contrast: 1.02, brightness: 0.02, saturation: 1.0,
+    hue: 0.0, vignette: 0.0, blur: 0.0, grain: 0.026,
+    seed: 1.0, rotate: 0.6458, offsetX: 0.0, offsetY: 0.0, drift: 0.05,
+    oklab: 1.0, timeScale: 0.9
   };
 
   function compile(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
