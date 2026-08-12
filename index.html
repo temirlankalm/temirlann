@@ -530,21 +530,21 @@
   // light-pink palette with enough contrast for the noise spots to read
   var U = {
     colors: [
-      [1.000,1.000,1.000],   // white
-      [0.996,0.910,0.945],   // #fee8f1 very light pink
-      [0.972,0.741,0.843],   // #f8bdd7 light pink
-      [0.925,0.510,0.686],   // #ec82af rose (visible spots)
-      [0.925,0.510,0.686],
-      [0.925,0.510,0.686],
-      [0.925,0.510,0.686],
-      [0.925,0.510,0.686]
+      [0.996,0.906,0.945],   // #fee7f1 light pink base
+      [0.965,0.663,0.812],   // #f6a9cf pink
+      [0.941,0.427,0.671],   // #f06dab bright rose
+      [0.905,0.310,0.588],   // #e74f96 deep rose
+      [0.905,0.310,0.588],
+      [0.905,0.310,0.588],
+      [0.905,0.310,0.588],
+      [0.905,0.310,0.588]
     ],
     colorCount: 4,
-    scale: 1.35, intensity: 0.42, paramA: 0.55, warp: 0.26,
-    detail: 2.752, contrast: 1.02, brightness: 0.02, saturation: 1.0,
+    scale: 0.92, intensity: 0.40, paramA: 0.6, warp: 0.34,
+    detail: 2.752, contrast: 1.04, brightness: 0.03, saturation: 1.05,
     hue: 0.0, vignette: 0.0, blur: 0.0, grain: 0.026,
-    seed: 1.0, rotate: 0.6458, offsetX: 0.0, offsetY: 0.0, drift: 0.05,
-    oklab: 1.0, timeScale: 0.9
+    seed: 1.0, rotate: 0.6458, offsetX: 0.0, offsetY: 0.0, drift: 0.07,
+    oklab: 1.0, timeScale: 1.05
   };
 
   function compile(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
