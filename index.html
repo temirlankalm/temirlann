@@ -146,6 +146,22 @@
 
   main p:last-of-type { margin-bottom: 0; }
 
+  /* ---------- essays ---------- */
+  .essays { margin-top: 46px; margin-bottom: 34px; }
+  .essays-label {
+    font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 6px;
+  }
+  .essay-row {
+    display: flex; flex-direction: column; gap: 1px;
+    border: none; border-top: 1px solid var(--underline);
+    padding: 13px 0 12px;
+  }
+  .essay-row:hover { border-top-color: var(--highlight-ink); }
+  .essay-title { font-size: 17px; color: var(--ink); transition: color 0.2s ease; }
+  .essay-row:hover .essay-title { color: var(--highlight-ink); }
+  .essay-meta { font-size: 13.5px; color: var(--ink-soft); }
+
   /* ---------- links row ---------- */
   .links {
     display: flex;
@@ -285,6 +301,7 @@
   <header class="fade">
     <a class="logo" href="#" style="border-bottom: 1px solid var(--underline);">temirlan</a>
     <nav>
+      <a href="#essays">essays</a>
       <a href="https://x.com/temirkalm" target="_blank" rel="noopener">x</a>
       <a href="https://www.linkedin.com/in/temirlan-kalmukhan-909280365/" target="_blank" rel="noopener">linkedin</a>
     </nav>
@@ -300,6 +317,14 @@
     <p class="fade d4">i'm also cpo of <a href="https://geko.sh" target="_blank" rel="noopener">geko</a>, where we build voice ai models for underserved languages — i trained the models and collected the datasets.</p>
 
     <p class="fade d5">i'm 15 — an ai engineer already, but honestly i'm just getting started and still have a lot to learn.</p>
+
+    <div id="essays" class="essays fade d5">
+      <p class="essays-label">essays</p>
+      <a class="essay-row" href="essays/the-caped-capitalist.html">
+        <span class="essay-title">the caped capitalist</span>
+        <span class="essay-meta">a forensic audit of bruce wayne's wealth · no. 1</span>
+      </a>
+    </div>
 
     <p class="fade d5">let's connect.</p>
 
