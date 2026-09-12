@@ -11,18 +11,18 @@
 <link rel="icon" type="image/jpeg" href="reinhard.jpg">
 <style>
   :root {
-    --bg: #fdf8f4;
-    --ink: #a24a5e;
-    --ink-soft: #b56a7a;
-    --underline: rgba(162, 74, 94, 0.45);
-    --highlight: #f4a9c8;
-    --highlight-ink: #7e3247;
+    --bg: #efeeee;
+    --ink: #4e545a;
+    --ink-soft: #7c828a;
+    --underline: rgba(78, 84, 90, 0.42);
+    --highlight: #c2c6ca;
+    --highlight-ink: #2e3338;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #fdeef3;
+    background: #efeeee;
     color: var(--ink);
     font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 17px;
@@ -48,10 +48,10 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: rgba(253, 240, 246, 0.34);
+    background: rgba(239, 238, 238, 0.3);
   }
 
-  ::selection { background: rgba(244, 169, 200, 0.45); }
+  ::selection { background: rgba(78, 84, 90, 0.2); }
 
   .wrap {
     max-width: 960px;
@@ -210,17 +210,17 @@
   .player-toggle.playing .icon-pause { display: block; }
 
   /* light styling while the overlay is open (dark backdrop) */
-  .player-toggle.playing { color: #fbe4ea; }
-  .player-toggle.playing svg { fill: #fbe4ea; }
-  .player-toggle.playing .line { background: rgba(251, 228, 234, 0.5); }
-  .player-toggle.playing:hover .line { background: #fbe4ea; }
+  .player-toggle.playing { color: #eceef0; }
+  .player-toggle.playing svg { fill: #eceef0; }
+  .player-toggle.playing .line { background: rgba(236, 238, 240, 0.5); }
+  .player-toggle.playing:hover .line { background: #eceef0; }
 
   /* ---------- video overlay ---------- */
   .video-overlay {
     position: fixed;
     inset: 0;
     z-index: 50;
-    background: rgba(38, 12, 18, 0.82);
+    background: rgba(28, 31, 35, 0.86);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     display: flex;
@@ -255,7 +255,7 @@
     right: 30px;
     background: none;
     border: none;
-    color: #fbe4ea;
+    color: #eceef0;
     font-size: 26px;
     line-height: 1;
     cursor: pointer;
@@ -407,7 +407,7 @@
   var canvas = document.getElementById('shaderBg');
   if (!canvas) return;
   var gl = canvas.getContext('webgl', { antialias: false });
-  if (!gl) { document.body.style.background = '#fdeef3'; return; }
+  if (!gl) { document.body.style.background = '#efeeee'; return; }
 
   var VERT = 'attribute vec2 a_position;\nvoid main(){ gl_Position = vec4(a_position, 0.0, 1.0); }';
 
@@ -552,17 +552,17 @@
 '}'
   ].join('\n');
 
-  // light-pink palette with enough contrast for the noise spots to read
+  // off-white -> soft slate palette (monochrome noise spots)
   var U = {
     colors: [
-      [1.000,0.984,0.992],   // #fffbfd near white
-      [0.996,0.918,0.953],   // #feeaf3 very light pink
-      [0.984,0.831,0.902],   // #fbd4e6 light pink
-      [0.957,0.706,0.827],   // #f4b4d3 soft rose (spots)
-      [0.957,0.706,0.827],
-      [0.957,0.706,0.827],
-      [0.957,0.706,0.827],
-      [0.957,0.706,0.827]
+      [0.945,0.945,0.945],   // #f1f1f1 near-white
+      [0.890,0.894,0.898],   // #e3e4e5 light gray
+      [0.769,0.784,0.800],   // #c4c8cc mid gray
+      [0.600,0.627,0.659],   // #99a0a8 soft slate (spots)
+      [0.600,0.627,0.659],
+      [0.600,0.627,0.659],
+      [0.600,0.627,0.659],
+      [0.600,0.627,0.659]
     ],
     colorCount: 4,
     scale: 0.92, intensity: 0.40, paramA: 0.6, warp: 0.34,
@@ -638,7 +638,7 @@
   Cal("init", "30min", {origin:"https://app.cal.com"});
   Cal.config = Cal.config || {};
   Cal.config.forwardQueryParams = true;
-  Cal.ns["30min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#c84141"},"dark":{"cal-brand":"#ec7b7b"}},"hideEventTypeDetails":false,"layout":"month_view"});
+  Cal.ns["30min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#4e545a"},"dark":{"cal-brand":"#9aa1a9"}},"hideEventTypeDetails":false,"layout":"month_view"});
 </script>
 <!-- Cal element-click embed code ends -->
 
