@@ -39,30 +39,26 @@
   .topbar .back { font-size: 14px; color: var(--ink-soft); border-bottom: 1px solid var(--underline); padding-bottom: 1px; transition: color .2s ease, border-color .2s ease; }
   .topbar .back:hover { color: var(--highlight-ink); border-bottom-color: var(--highlight-ink); }
 
-  header.hero { padding: 64px 0 34px; }
-  .kicker { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 20px; }
+  header.hero { padding: 60px 0 32px; }
+  .kicker {
+    font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 16px;
+  }
   h1 {
-    font-family: "Newsreader", Georgia, serif;
-    font-size: clamp(32px, 6vw, 50px); font-weight: 500;
-    line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 16px;
+    font-size: clamp(26px, 5vw, 38px); font-weight: 500;
+    line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 12px;
+    text-transform: lowercase;
   }
-  .sub { font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 20px; color: var(--ink-soft); max-width: 620px; line-height: 1.5; }
-  .meta { margin-top: 26px; font-size: 13px; color: var(--ink-mute); display: flex; flex-wrap: wrap; gap: 8px 16px; }
-  .meta b { color: var(--ink); font-weight: 500; }
-  .meta .sep { color: var(--line); }
-
-  .abstract { max-width: 620px; margin: 30px 0 34px; color: var(--ink-soft); font-size: 15.5px; }
-
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-size: 14px; font-weight: 500; letter-spacing: 0.01em;
-    padding: 11px 20px; border-radius: 10px; transition: all .2s ease;
+  .sub {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 560px;
+    line-height: 1.6; margin-bottom: 28px;
   }
-  .btn-primary { background: var(--ink); color: #fff; }
-  .btn-primary:hover { background: var(--highlight-ink); transform: translateY(-1px); }
-  .btn-ghost { border: 1px solid var(--underline); color: var(--ink); }
-  .btn-ghost:hover { border-color: var(--highlight-ink); color: var(--highlight-ink); }
+  .links { display: flex; flex-wrap: wrap; gap: 26px; font-size: 15px; }
+  .links a {
+    border-bottom: 1px solid var(--underline); padding-bottom: 1px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .links a:hover { color: var(--highlight-ink); border-bottom-color: var(--highlight-ink); }
 
   .viewer {
     border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
@@ -93,20 +89,12 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="kicker">Essays on the Science of Fiction · No. 1</div>
-    <h1>The Caped Capitalist</h1>
-    <p class="sub">A Forensic Audit of Bruce Wayne's Wealth — where, on the actual financial statements of Wayne Enterprises, does Batman appear?</p>
-    <div class="meta">
-      <span>by <b>Temirlan Kalmukhan</b></span>
-      <span class="sep">·</span>
-      <span>September 2026</span>
-      <span class="sep">·</span>
-      <span>10 pages · PDF</span>
-    </div>
-    <p class="abstract">Taking “what's your superpower? — I'm rich” literally: a reading of Batman as a public-company insider with a concentrated equity position, an audit committee, and a signature on file with the SEC. Four findings on why a $110M-a-year vigilante is hidden less by the cave than by rounding.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="the-caped-capitalist.pdf" target="_blank" rel="noopener">↗ Open full essay</a>
-      <a class="btn btn-ghost" href="the-caped-capitalist.pdf" download>↓ Download PDF</a>
+    <div class="kicker">essays · no. 1</div>
+    <h1>the caped capitalist</h1>
+    <p class="sub">a forensic audit of bruce wayne's wealth — where, on the actual financials of wayne enterprises, does batman appear?</p>
+    <div class="links">
+      <a href="the-caped-capitalist.pdf" target="_blank" rel="noopener">open essay</a>
+      <a href="the-caped-capitalist.pdf" download>download pdf</a>
     </div>
   </div>
 </header>
