@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Economics of Hot Air — Temirlan Kalmukhan</title>
+<meta name="description" content="Bachmanity, Reflexivity, and the Thermodynamics of Dumb Money — an essay by Temirlan Kalmukhan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/jpeg" href="../reinhard.jpg">
+<style>
+  :root {
+    --bg: #efeeee;
+    --ink: #4e545a;
+    --ink-soft: #7c828a;
+    --ink-mute: #9aa0a7;
+    --underline: rgba(78, 84, 90, 0.42);
+    --highlight-ink: #2e3338;
+    --line: rgba(78, 84, 90, 0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: rgba(78, 84, 90, 0.2); }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+
+  .topbar { border-bottom: 1px solid var(--line); }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .topbar .brand { font-family: "Newsreader", Georgia, serif; font-size: 20px; font-weight: 500; }
+  .topbar .back { font-size: 14px; color: var(--ink-soft); border-bottom: 1px solid var(--underline); padding-bottom: 1px; transition: color .2s ease, border-color .2s ease; }
+  .topbar .back:hover { color: var(--highlight-ink); border-bottom-color: var(--highlight-ink); }
+
+  header.hero { padding: 60px 0 32px; }
+  .kicker {
+    font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(26px, 5vw, 38px); font-weight: 500;
+    line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 12px;
+    text-transform: lowercase;
+  }
+  .sub {
+    font-size: 16.5px; color: var(--ink-soft); max-width: 560px;
+    line-height: 1.6; margin-bottom: 28px;
+  }
+  .links { display: flex; flex-wrap: wrap; gap: 26px; font-size: 15px; }
+  .links a {
+    border-bottom: 1px solid var(--underline); padding-bottom: 1px;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .links a:hover { color: var(--highlight-ink); border-bottom-color: var(--highlight-ink); }
+
+  .viewer {
+    border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    background: #fff; box-shadow: 0 14px 50px rgba(46, 51, 56, 0.12);
+    margin-bottom: 56px;
+  }
+  .viewer iframe { width: 100%; height: 82vh; min-height: 560px; border: 0; display: block; }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0 64px; }
+  footer .wrap { font-size: 13px; color: var(--ink-mute); }
+  footer a { color: var(--ink-soft); border-bottom: 1px solid var(--underline); padding-bottom: 1px; }
+  footer a:hover { color: var(--highlight-ink); }
+
+  @media (max-width: 560px) {
+    header.hero { padding: 44px 0 24px; }
+    .viewer iframe { height: 72vh; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="../index.html">temirlan</a>
+    <a class="back" href="../index.html#essays">← all essays</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">essays · no. 2</div>
+    <h1>the economics of hot air</h1>
+    <p class="sub">bachmanity, reflexivity, and the thermodynamics of dumb money</p>
+    <div class="links">
+      <a href="the-economics-of-hot-air.pdf" target="_blank" rel="noopener">open essay</a>
+      <a href="the-economics-of-hot-air.pdf" download>download pdf</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="viewer">
+    <iframe src="the-economics-of-hot-air.pdf#view=FitH" title="The Economics of Hot Air — full essay"></iframe>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    If the reader doesn't load, <a href="the-economics-of-hot-air.pdf" target="_blank" rel="noopener">open the PDF directly</a>.
+    &nbsp;·&nbsp; <a href="../index.html">← back to temirlan.dev</a>
+  </div>
+</footer>
+
+</body>
+</html>
