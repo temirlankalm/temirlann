@@ -10,6 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="reinhard.jpg">
 <style>
+  @font-face {
+    font-family: "Agitemirlan";
+    src: url("Agitemirlan-Regular.woff") format("woff"),
+         url("Agitemirlan-Regular.ttf") format("truetype");
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --bg: #efeeee;
     --ink: #4e545a;
@@ -34,8 +43,8 @@
   body {
     background: #efeeee;
     color: var(--ink);
-    font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 17px;
+    font-family: "Agitemirlan", "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 18px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -129,8 +138,8 @@
   }
 
   .logo {
-    font-family: "Newsreader", Georgia, serif;
-    font-size: 22px;
+    font-family: "Agitemirlan", "Newsreader", Georgia, serif;
+    font-size: 24px;
     font-weight: 500;
     letter-spacing: 0.01em;
   }
@@ -138,8 +147,8 @@
   nav {
     display: flex;
     gap: 28px;
-    font-family: "Newsreader", Georgia, serif;
-    font-size: 19px;
+    font-family: "Agitemirlan", "Newsreader", Georgia, serif;
+    font-size: 20px;
   }
 
   nav a { border-bottom: none; }

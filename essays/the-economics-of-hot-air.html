@@ -10,6 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/jpeg" href="../reinhard.jpg">
 <style>
+  @font-face {
+    font-family: "Agitemirlan";
+    src: url("../Agitemirlan-Regular.woff") format("woff"),
+         url("../Agitemirlan-Regular.ttf") format("truetype");
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --bg: #efeeee;
     --ink: #4e545a;
@@ -31,8 +40,8 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
+    font-family: "Agitemirlan", "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
@@ -43,7 +52,7 @@
 
   .topbar { border-bottom: 1px solid var(--line); }
   .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
-  .topbar .brand { font-family: "Newsreader", Georgia, serif; font-size: 20px; font-weight: 500; }
+  .topbar .brand { font-family: "Agitemirlan", "Newsreader", Georgia, serif; font-size: 22px; font-weight: 500; }
   .topbar .back { font-size: 14px; color: var(--ink-soft); border-bottom: 1px solid var(--underline); padding-bottom: 1px; transition: color .2s ease, border-color .2s ease; }
   .topbar .back:hover { color: var(--highlight-ink); border-bottom-color: var(--highlight-ink); }
 
