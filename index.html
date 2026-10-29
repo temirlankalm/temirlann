@@ -61,14 +61,13 @@
   }
 
   .newton-corner {
-    position: fixed;
-    bottom: 0;
-    right: 28px;
-    width: 250px;
-    max-width: 26vw;
+    position: absolute;
+    right: 0;
+    bottom: 68px;
+    width: clamp(280px, 34vw, 360px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.45;
+    opacity: 0.55;
     user-select: none;
   }
   .newton-corner img {
@@ -162,7 +161,10 @@
   nav a:hover { border-bottom: 1px solid var(--underline); }
 
   /* ---------- main ---------- */
-  main { padding: 120px 0 80px; }
+  main {
+    position: relative;
+    padding: 120px 0 80px;
+  }
 
   main p {
     max-width: 620px;
@@ -303,6 +305,17 @@
   .video-close:hover { opacity: 1; }
 
   /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .newton-corner {
+      position: static;
+      width: 240px;
+      max-width: 75%;
+      margin: 52px auto 16px;
+      opacity: 0.5;
+      display: block;
+    }
+  }
+
   @media (max-width: 600px) {
     body { font-size: 16px; }
     header {
