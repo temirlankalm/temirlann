@@ -78,22 +78,6 @@
     overflow: hidden;
   }
 
-  .newton-corner {
-    position: absolute;
-    right: 0;
-    bottom: clamp(105px, 15vh, 150px);
-    width: clamp(250px, 32vw, 350px);
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.55;
-    user-select: none;
-  }
-  .newton-corner img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
   ::selection { background: rgba(78, 84, 90, 0.2); }
 
   a {
@@ -335,17 +319,6 @@
   .video-close:hover { opacity: 1; }
 
   /* ---------- responsive ---------- */
-  @media (max-width: 860px) {
-    .newton-corner {
-      position: static;
-      width: clamp(140px, 32vw, 200px);
-      max-width: 70%;
-      margin: clamp(12px, 2vh, 24px) auto 8px;
-      opacity: 0.5;
-      display: block;
-    }
-  }
-
   @media (max-width: 600px) {
     body {
       font-size: 15px;
@@ -400,14 +373,6 @@
     .player-toggle .line { width: 30px; }
     .video-overlay { padding: 16px; }
 
-    .newton-corner {
-      position: static;
-      width: clamp(130px, 36vw, 175px);
-      max-width: 65%;
-      margin: clamp(6px, 1.2vh, 14px) auto 4px;
-      opacity: 0.5;
-      display: block;
-    }
   }
 </style>
 </head>
@@ -454,9 +419,6 @@
       <button type="button" class="linklike" data-cal-link="temirlan-kalmukhan-h6vs2e/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}'>book a call</button>
     </div>
 
-    <div class="newton-corner" aria-hidden="true">
-      <img src="newton.png" alt="" width="512" height="286">
-    </div>
   </main>
 
 </div>
